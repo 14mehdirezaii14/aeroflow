@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="فن کامپیوتری">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#3a4048"/>
+      <stop offset="100%" stop-color="#161a20"/>
+    </radialGradient>
+    <radialGradient id="frame" cx="38%" cy="35%" r="80%">
+      <stop offset="0%" stop-color="#4a515c"/>
+      <stop offset="100%" stop-color="#23272e"/>
+    </radialGradient>
+    <radialGradient id="blade" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#d9b083"/>
+      <stop offset="70%" stop-color="#b57e4f"/>
+      <stop offset="100%" stop-color="#8a5a33"/>
+    </radialGradient>
+    <radialGradient id="hub" cx="40%" cy="38%" r="70%">
+      <stop offset="0%" stop-color="#e8e8ea"/>
+      <stop offset="100%" stop-color="#9aa0a8"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="400" height="300" rx="18" fill="url(#bg)"/>
+
+  <!-- Frame -->
+  <rect x="70" y="45" width="260" height="210" rx="26" fill="url(#frame)" stroke="#0e1116" stroke-width="4"/>
+  <rect x="88" y="63" width="224" height="174" rx="18" fill="#0b0e12"/>
+
+  <!-- Blade ring -->
+  <g>
+    <!-- 9 blades: put7  40deg. 40deg..320deg -->
+    <g fill="url(#blade)" stroke="#7a5230" stroke-width="1">
+      <ellipse cx="200" cy="150" rx="17" ry="44" transform="rotate(0 200 150)"/>
+      <ellipse cx="200" cy="150" rx="17" ry="44" transform="rotate(40 200 150)"/>
+      <ellipse cx="200" cy="150" rx="17" ry="44" transform="rotate(80 200 150)"/>
+      <ellipse cx="200" cy="150" rx="17" ry="44" transform="rotate(120 200 150)"/>
+      <ellipse cx="200" cy="150" rx="17" ry="44" transform="rotate(160 200 150)"/>
+      <ellipse cx="200" cy="150" rx="17" ry="44" transform="rotate(200 200 150)"/>
+      <ellipse cx="200" cy="150" rx="17" ry="44" transform="rotate(240 200 150)"/>
+      <ellipse cx="200" cy="150" rx="17" ry="44" transform="rotate(280 200 150)"/>
+      <ellipse cx="200" cy="150" rx="17" ry="44" transform="rotate(320 200 150)"/>
+    </g>
+  </g>
+
+  <!-- Hub -->
+  <circle cx="200" cy="150" r="26" fill="url(#hub)" stroke="#5c6169" stroke-width="2"/>
+  <circle cx="200" cy="150" r="12" fill="#d7dade"/>
+  <circle cx="200" cy="150" r="4" fill="#7d828a"/>
+
+  <!-- Mounting screws -->
+  <circle cx="112" cy="90" r="4" fill="#6b7078"/>
+  <circle cx="288" cy="90" r="4" fill="#6b7078"/>
+  <circle cx="112" cy="210" r="4" fill="#6b7078"/>
+  <circle cx="288" cy="210" r="4" fill="#6b7078"/>
+</svg>

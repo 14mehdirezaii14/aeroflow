@@ -47,4 +47,9 @@ export const categoryLabels: Record<string, string> = {
 export const bearingLabels: Record<string, string> = {
   FDB: 'بلبرینگ دینامیک سیال (FDB)',
   DualBall: 'بلبرینگ دوبل (Dual Ball)',
+  SSO2: 'یاتاقان خودپایدارکننده روغنی (SSO2)',
 };
+
+export function bearingLabel(bearing: string): string {
+  return bearingLabels[bearing] ?? bearing;
+}

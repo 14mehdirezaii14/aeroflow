@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="فن سقفی مسکونی">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3f0ea"/>
+      <stop offset="100%" stop-color="#dcd6cb"/>
+    </linearGradient>
+    <linearGradient id="blade" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8dfd1"/>
+      <stop offset="100%" stop-color="#c9b28e"/>
+    </linearGradient>
+    <radialGradient id="motor" cx="40%" cy="36%" r="70%">
+      <stop offset="0%" stop-color="#7a817f"/>
+      <stop offset="100%" stop-color="#3a403e"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="400" height="300" rx="18" fill="url(#bg)"/>
+
+  <!-- Ceiling mount -->
+  <rect x="182" y="36" width="36" height="26" rx="4" fill="#4a504e"/>
+  <rect x="192" y="62" width="16" height="22" fill="#5a615f"/>
+
+  <!-- Motor housing -->
+  <circle cx="200" cy="104" r="24" fill="url(#motor)" stroke="#262b29" stroke-width="3"/>
+  <circle cx="200" cy="104" r="8" fill="#d9dedc"/>
+
+  <!-- 4 balanced ceiling blades -->
+  <g fill="url(#blade)" stroke="#a58963" stroke-width="2">
+    <path d="M236,96 C282,82 330,84 344,102 C336,116 296,122 244,112 Z" transform="rotate(0 200 104)"/>
+    <path d="M236,96 C282,82 330,84 344,102 C336,116 296,122 244,112 Z" transform="rotate(72 200 104)"/>
+    <path d="M236,96 C282,82 330,84 344,102 C336,116 296,122 244,112 Z" transform="rotate(144 200 104)"/>
+    <path d="M236,96 C282,82 330,84 344,102 C336,116 296,122 244,112 Z" transform="rotate(216 200 104)"/>
+    <path d="M236,96 C282,82 330,84 344,102 C336,116 296,122 244,112 Z" transform="rotate(288 200 104)"/>
+  </g>
+
+  <!-- Pull chain -->
+  <path d="M200,128 C200,160 204,184 200,206" fill="none" stroke="#8a8f8c" stroke-width="2"/>
+  <circle cx="200" cy="216" r="6" fill="#9aa09d"/>
+
+  <!-- Ambient home blur lines -->
+  <ellipse cx="200" cy="150" rx="120" ry="70" fill="none" stroke="#b8ac97" stroke-width="1.5" stroke-dasharray="2 6" opacity="0.5"/>
+</svg>

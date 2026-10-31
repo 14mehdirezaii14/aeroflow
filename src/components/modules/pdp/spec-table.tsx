@@ -1,4 +1,4 @@
-import { formatPersianNumber } from '@/lib/utils';
+import { formatPersianNumber, bearingLabel } from '@/lib/utils';
 import type { Product } from '@/types/fan.types';
 
 interface SpecTableProps {
@@ -23,7 +23,7 @@ export function SpecTable({ product }: SpecTableProps) {
     { label: 'MTBF (میانگین زمان بین خرابی)', value: formatPersianNumber(s.mtbfHours.toLocaleString('en-US')) },
     { label: 'ابعاد قاب', value: `${formatPersianNumber(s.dimensionMm)} mm` },
     { label: 'ولتاژ ورودی', value: s.voltage },
-    { label: 'نوع بلبرینگ', value: s.bearing === 'FDB' ? 'FDB — دینامیک سیال' : 'Dual Ball — دوبل' },
+    { label: 'نوع بلبرینگ', value: bearingLabel(s.bearing) },
     { label: 'برند', value: product.brand },
     { label: 'مدل', value: product.slug },
   ];

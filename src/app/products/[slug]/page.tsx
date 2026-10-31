@@ -1,15 +1,16 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, Check, Minus, Plus, ShoppingCart } from 'lucide-react';
+import { ArrowLeft, Check } from 'lucide-react';
 import { fetchProductDetail } from '@/lib/products-service';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import { SpecBadges } from '@/components/modules/catalog/spec-badges';
 import { SpecTable } from '@/components/modules/pdp/spec-table';
 import { PdpVisualizations } from '@/components/modules/pdp/pdp-interactive';
-import { formatCompactCurrency, formatCurrency, formatPersianNumber, categoryLabels } from '@/lib/utils';
+import { PdpImageGallery } from '@/components/modules/pdp/pdp-image-gallery';
+import { PurchasePanel } from '@/components/modules/pdp/purchase-panel';
+import { formatPersianNumber, categoryLabels } from '@/lib/utils';
 
 interface PdpPageProps {
   params: Promise<{ slug: string }>;
@@ -32,7 +33,7 @@ export default async function ProductDetailPage({ params }: PdpPageProps) {
   const isOutOfStock = product.stock <= 0;
 
   return (
-    <div className="container py-8">
+    <div className="container pt-8 pb-24 md:pb-8">
       {/* Breadcrumb */}
       <nav className="mb-6 flex items-center gap-2 text-sm text-muted-foreground" aria-label="مسیر">
         <Link href="/" className="hover:text-foreground">خانه</Link>
@@ -44,15 +45,12 @@ export default async function ProductDetailPage({ params }: PdpPageProps) {
         </Link>
       </nav>
 
-      <div className="grid gap-8 lg:grid-cols-2">
-        {/* Image / hero panel */}
-        <div className="flex aspect-square items-center justify-center rounded-3xl bg-gradient-to-br from-primary/10 to-cyan-500/10">
-          <span className="text-8xl font-black text-primary/30">
-            {categoryLabels[product.category]}
-          </span>
-        </div>
+      {/* Mobile-first grid: stacks on <md, side-by-side from md up */}
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {/* Gallery (constrained wrapper — no viewport blowout) */}
+        <PdpImageGallery title={product.title} images={product.images} category={product.category} />
 
-        {/* Summary */}
+        {/* Summary / purchase column */}
         <div>
           <div className="flex items-center gap-2">
             <Badge variant={product.bestSeller ? 'success' : 'secondary'}>
@@ -61,7 +59,7 @@ export default async function ProductDetailPage({ params }: PdpPageProps) {
             {isOutOfStock && <Badge variant="destructive">ناموجود</Badge>}
           </div>
 
-          <h1 className="mt-4 text-3xl font-bold leading-snug">{product.title}</h1>
+          <h1 className="mt-4 text-2xl font-bold leading-snug sm:text-3xl">{product.title}</h1>
 
           <div className="mt-3 flex items-center gap-2 text-sm">
             <span className="text-amber-500">★ {formatPersianNumber(product.rating)}</span>
@@ -75,34 +73,8 @@ export default async function ProductDetailPage({ params }: PdpPageProps) {
 
           <SpecBadges specs={product.specs} className="mt-5" />
 
-          <Card className="mt-8">
-            <CardContent className="flex flex-wrap items-center justify-between gap-4 p-5">
-              <div>
-                {product.oldPrice && (
-                  <p className="text-sm text-muted-foreground line-through">
-                    {formatCurrency(product.oldPrice)}
-                  </p>
-                )}
-                <p className="text-3xl font-black text-primary">
-                  {formatCompactCurrency(product.price)}
-                </p>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <Button variant="outline" size="icon" disabled={isOutOfStock} aria-label="کاهش تعداد">
-                  <Minus className="size-4" />
-                </Button>
-                <span className="w-8 text-center font-bold">{formatPersianNumber(1)}</span>
-                <Button variant="outline" size="icon" disabled={isOutOfStock} aria-label="افزایش تعداد">
-                  <Plus className="size-4" />
-                </Button>
-                <Button size="lg" disabled={isOutOfStock} className="ms-2">
-                  <ShoppingCart className="size-4" />
-                  {isOutOfStock ? 'ناموجود' : 'افزودن به سبد خرید'}
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+          {/* Interactive purchase panel (desktop row + mobile sticky bar) */}
+          <PurchasePanel product={product} />
 
           <ul className="mt-6 space-y-2 text-sm text-muted-foreground">
             <li className="flex items-center gap-2">

@@ -17,10 +17,20 @@ export function ProductCard({ product, onAddToCompare, compact = false }: Produc
   return (
     <Card className="group relative flex flex-col overflow-hidden transition-shadow hover:shadow-md">
       <Link href={`/products/${product.slug}`} className="block">
-        <div className="flex aspect-[4/3] w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900">
-          <span className="text-6xl font-black text-slate-300 dark:text-slate-700 transition-transform group-hover:scale-110">
-            {categoryLabels[product.category] ?? 'فن'}
-          </span>
+        <div className="flex aspect-[4/3] w-full items-center justify-center overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900">
+          {product.images[0] ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={product.images[0]}
+              alt={product.title}
+              loading="lazy"
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          ) : (
+            <span className="text-6xl font-black text-slate-300 dark:text-slate-700">
+              {categoryLabels[product.category] ?? 'فن'}
+            </span>
+          )}
         </div>
       </Link>
 

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="فن صنعتی گریز از مرکز">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#dfe4ea"/>
+      <stop offset="100%" stop-color="#aeb6c0"/>
+    </radialGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f2f5f8"/>
+      <stop offset="45%" stop-color="#c3cbd4"/>
+      <stop offset="100%" stop-color="#8f99a5"/>
+    </linearGradient>
+    <radialGradient id="motor" cx="40%" cy="36%" r="70%">
+      <stop offset="0%" stop-color="#3a7bd5"/>
+      <stop offset="100%" stop-color="#1d4e9e"/>
+    </radialGradient>
+    <radialGradient id="eye" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#20242b"/>
+      <stop offset="100%" stop-color="#0c0f13"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="400" height="300" rx="18" fill="url(#bg)"/>
+
+  <!-- Scroll / volute casing -->
+  <path d="M150,120 C120,88 175,60 235,72 C310,88 330,150 300,198 C275,238 215,250 172,232 C110,205 105,150 150,120 Z"
+        fill="url(#steel)" stroke="#6e7884" stroke-width="3"/>
+
+  <!-- Inlet ring (front) -->
+  <circle cx="182" cy="152" r="52" fill="#c7cfd8" stroke="#6e7884" stroke-width="3"/>
+  <circle cx="182" cy="152" r="36" fill="url(#eye)"/>
+  <circle cx="182" cy="152" r="36" fill="none" stroke="#39414c" stroke-width="2" stroke-dasharray="6 4"/>
+
+  <!-- Motor bulge (back) -->
+  <circle cx="252" cy="196" r="30" fill="url(#motor)" stroke="#16407f" stroke-width="3"/>
+  <circle cx="252" cy="196" r="12" fill="#123367"/>
+  <circle cx="252" cy="196" r="5" fill="#7fa3e0"/>
+
+  <!-- Mounting brackets -->
+  <rect x="72" y="232" width="52" height="14" rx="4" fill="#8f99a5"/>
+  <rect x="276" y="232" width="52" height="14" rx="4" fill="#8f99a5"/>
+
+  <!-- Rivets -->
+  <circle cx="120" cy="70" r="4" fill="#6e7884"/>
+  <circle cx="300" cy="88" r="4" fill="#6e7884"/>
+  <circle cx="150" cy="250" r="4" fill="#6e7884"/>
+  <circle cx="290" cy="250" r="4" fill="#6e7884"/>
+</svg>

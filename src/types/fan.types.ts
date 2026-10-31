@@ -8,7 +8,7 @@ export type FanCategory = 'industrial' | 'pc' | 'residential';
 
 export type Voltage = '12V' | '24V' | '220V';
 
-export type BearingType = 'FDB' | 'DualBall';
+export type BearingType = 'FDB' | 'DualBall' | 'SSO2';
 
 export type SortOption =
   | 'relevance'
