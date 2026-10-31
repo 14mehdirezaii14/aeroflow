@@ -37,7 +37,7 @@ export function SearchBar({ className }: { className?: string }) {
           onFocus={() => setFocused(true)}
           onBlur={() => window.setTimeout(() => setFocused(false), 150)}
           placeholder="جستجوی فن، برند یا مشخصات فنی…"
-          className="pe-10"
+          className="pr-8"
           role="searchbox"
           aria-label="جستجو"
         />
